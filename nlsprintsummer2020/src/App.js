@@ -31,7 +31,7 @@ class App extends Component {
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
         <main style={{ marginTop: "64px" }}>
-          <p>This is the page content!</p>
+          <p>Welcome to my page</p>
         </main>
       </div>
     );
