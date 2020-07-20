@@ -3,11 +3,22 @@ import React, { Component } from "react";
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
+import Graph from './Graph';
+import WelcomeText from './WelcomeText'
 
 class App extends Component {
-  state = {
-    sideDrawerOpen: false,
+  constructor(props) {
+    // Call super class
+    super(props);
+    this.state = {
+      data: [],
+      sideDrawerOpen: false,
+    }
+  
+    // Bind this to function updateData (This eliminates the error)
+    this.updateData = this.updateData.bind(this);
   };
+
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
@@ -19,6 +30,25 @@ class App extends Component {
     this.setState({ sideDrawerOpen: false });
   };
 
+  componentWillMount() {
+    // Your parse code, but not seperated in a function
+    var csvFilePath = require("./data/predictions.csv");
+    var Papa = require("papaparse/papaparse.min.js");
+    Papa.parse(csvFilePath, {
+      header: true,
+      download: true,
+      skipEmptyLines: true,
+      // Here this is also available. So we can call our custom class method
+      complete: this.updateData
+    });
+  }
+
+  updateData(result) {
+    const data = result.data;
+    // Here this is available and we can call this.setState (since it's binded in the constructor)
+    this.setState({data: data}); // or shorter ES syntax: this.setState({ data });
+  }
+
   render() {
     let backdrop;
 
@@ -27,27 +57,11 @@ class App extends Component {
     }
     return (
       <div style={{ height: "100%" }}>
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+        <Toolbar drawerClickHandler={this.drawerToggleClickHandler}  />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
-        <main style={{ marginTop: "64px" }}>
-          <p>Welcome to GreenForecast!</p>
-          <p>
-            This web application is a set of graphs, giving you insight into the
-            energy produced in a windmill park
-          </p>
-          <p>
-            In the application, you can choose to see the forecasted weather and
-            the estimated production outcome derived from forecasted weather
-            data.
-          </p>
-          <p>
-            You can also check out historical data from the park, and compare
-            forecasted production values to actual production values, giving you
-            insight into the accuracy of the prediction model we in
-            GreenForecast have created.
-          </p>
-        </main>
+        <WelcomeText className='welcome'/>        
+        <Graph className='predict' data={this.state.data} />
       </div>
     );
   }

@@ -11,10 +11,10 @@ const sideDrawer = (props) => {
     <nav className={drawerClasses}>
       <ul>
         <li>
-          <a href="/">Products</a>
+          <a href="/">Energy</a>
         </li>
         <li>
-          <a href="/">Users</a>
+          <a href="/">History</a>
         </li>
       </ul>
     </nav>
