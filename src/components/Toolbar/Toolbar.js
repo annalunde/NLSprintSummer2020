@@ -2,6 +2,7 @@ import React from "react";
 
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import "./Toolbar.css";
+import { ReactComponent as ReactLogo } from "../../pictures/Windmill.svg";
 
 const toolbar = (props) => (
   <header className="toolbar">
@@ -10,7 +11,7 @@ const toolbar = (props) => (
         <DrawerToggleButton click={props.drawerClickHandler} />
       </div>
       <div className="toolbar__logo">
-        <img src="/image.png" alt=""></img>
+        <ReactLogo width={180} height={150} color="white" />
         <a href="/">Green Forecast</a>
       </div>
       <div className="spacer" />
