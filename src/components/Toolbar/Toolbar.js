@@ -11,7 +11,7 @@ const toolbar = (props) => (
         <DrawerToggleButton click={props.drawerClickHandler} />
       </div>
       <div className="toolbar__logo">
-        <ReactLogo width={180} height={150} color="white" />
+        <ReactLogo width={180} height={250} crop="fill" top />
         <a href="/">Green Forecast</a>
       </div>
       <div className="spacer" />
