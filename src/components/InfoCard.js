@@ -9,16 +9,21 @@ const InfoCard = (props) => {
 
     return (
         <div >
-            <Card className='mt-5 mr-0 ml-0 mb-0'>
+            <Card style={{
+                width: '100%',
+                position: 'absolute', left: '60%', top: '65%',
+                transform: 'translate(-50%, -50%)'
+            }} >
                 <CardHeader>
                     <Col className="text-right"><ReactLogo width={20} height={20} /></Col>
-                    
                 </CardHeader>
                 <CardBody className="text-center">
                     <CardTitle></CardTitle>
                     <CardText>
-                        The graph shows you a prediction of the energy production in a windmill park in kWh in the next X minutes. 
-                        This is estimated using historical energy production data and the forecasted windspeed.
+                        The graph shows you a prediction of the energy production in a windmill park in kWh in the next X minutes.
+                    </CardText>
+                    <CardText>
+                        This is estimated using historical energy production data and the forecasted windspeeds in the area.
                     </CardText>
                 </CardBody>
             </Card>
@@ -27,3 +32,4 @@ const InfoCard = (props) => {
 };
 
 export default InfoCard;
+

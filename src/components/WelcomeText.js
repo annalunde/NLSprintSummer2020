@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Card, Button, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col
+    CardTitle, CardText
 } from 'reactstrap';
 import { ReactComponent as ReactLogo } from '../pictures/Info.svg';
 

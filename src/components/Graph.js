@@ -23,7 +23,9 @@ class Graph extends PureComponent {
     console.table(newData);
 
     return (
-      <Container sm="auto" className='mt-5'>
+      <Container style={{ width: '100%' ,
+      position: 'absolute', left: '50%', top: '50%',
+      transform: 'translate(-50%, -50%)'}} >
         <Row className='mt-5'>
         <Col sm={9}>
           <LineChart
@@ -43,7 +45,7 @@ class Graph extends PureComponent {
           </LineChart>
         </Col>
         <Col className='mt-5' >
-          <InfoCard className='mt-5' />
+          <InfoCard />
         </Col>
         </Row>
       </Container>
