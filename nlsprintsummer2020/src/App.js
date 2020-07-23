@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-
+import { Container, Row, Col} from 'reactstrap';
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
-import Graph from './Graph';
-import WelcomeText from './WelcomeText'
+import Graph from './components/Graph';
+import WelcomeText from './components/WelcomeText';
+import InfoCard from "./components/InfoCard";
+
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class App extends Component {
       data: [],
       sideDrawerOpen: false,
     }
-  
+
     // Bind this to function updateData (This eliminates the error)
     this.updateData = this.updateData.bind(this);
   };
@@ -44,9 +46,9 @@ class App extends Component {
   }
 
   updateData(result) {
-    const data = result.data;
+    const data = result.data
     // Here this is available and we can call this.setState (since it's binded in the constructor)
-    this.setState({data: data}); // or shorter ES syntax: this.setState({ data });
+    this.setState({ data: data }); // or shorter ES syntax: this.setState({ data });
   }
 
   render() {
@@ -56,12 +58,14 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
     return (
-      <div style={{ height: "100%" }}>
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler}  />
-        <SideDrawer show={this.state.sideDrawerOpen} />
-        {backdrop}
-        <WelcomeText className='welcome'/>        
-        <Graph className='predict' data={this.state.data} />
+          <div>
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop}
+        <Row className='text-center' fluid={true}>
+          {/* <WelcomeText className='text-center'/> */}
+        </Row>
+            <Graph data={this.state.data} className="ml-5" />
       </div>
     );
   }

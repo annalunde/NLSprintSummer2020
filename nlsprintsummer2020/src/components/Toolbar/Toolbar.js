@@ -1,10 +1,11 @@
 import React from "react";
-import Windmill from '../../pictures/Windmill.svg';
+import {container, Container} from 'reactstrap';
 
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import "./Toolbar.css";
 
 const toolbar = (props) => (
+  <Container>
   <header className="toolbar">
     <nav className="toolbar__navigation">
       <div className="toolbar__toggle-button">
@@ -27,6 +28,7 @@ const toolbar = (props) => (
       </div>
     </nav>
   </header>
+  </Container>
 );
 
 export default toolbar;
