@@ -11,9 +11,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-papaparse": "^3.4.0",
+    "react-redux": "^y7.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,26 +1,29 @@
 import React, { Component } from "react";
-import { Container, Row, Col} from 'reactstrap';
+import { Row } from 'reactstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
-import Graph from './components/Graph';
+import Energy from './components/Energy';
+import Wind from "./components/Wind";
 import WelcomeText from './components/WelcomeText';
-import InfoCard from "./components/InfoCard";
 
 
 class App extends Component {
   constructor(props) {
-    // Call super class
     super(props);
     this.state = {
       data: [],
+      dataWind: [],
       sideDrawerOpen: false,
     }
-
     // Bind this to function updateData (This eliminates the error)
     this.updateData = this.updateData.bind(this);
   };
-
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
@@ -34,7 +37,7 @@ class App extends Component {
 
   componentWillMount() {
     // Your parse code, but not seperated in a function
-    var csvFilePath = require("./data/predictions.csv");
+    var csvFilePath = require("./data/predictions24juli.csv");
     var Papa = require("papaparse/papaparse.min.js");
     Papa.parse(csvFilePath, {
       header: true,
@@ -58,16 +61,36 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
     return (
-          <div>
-          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
-        <Row className='text-center' fluid={true}>
-          {/* <WelcomeText className='text-center'/> */}
-        </Row>
-            <Graph data={this.state.data} className="ml-5" />
-      </div>
-    );
+      <Router>
+        <Toolbar
+          drawerClickHandler={this.drawerToggleClickHandler}
+        />
+        <SideDrawer show={this.state.sideDrawerOpen} />
+        {backdrop}
+
+        <Switch>
+        <Route path="/wind">
+            <Wind
+              className="ml-5" />
+          </Route>
+         {/*  <Route path="/history">
+            <Energy
+              className="ml-5" />
+          </Route> */}
+          <Route path="/energy">
+            <Energy
+              data={this.state.data}
+              dataWind={this.state.dataWind}
+              className="ml-5" />
+          </Route>
+          <Route path="/">
+            <Row className='text-center'>
+              <WelcomeText />
+            </Row>
+          </Route>
+        </Switch>
+      </Router>
+    )
   }
 }
 
