@@ -8,7 +8,7 @@ import { ReactComponent as ReactLogo } from '../pictures/Info.svg';
 import "./Welcome.css";
 
 const Welcome = (props) => {
-    return (   
+    return (
         <div>
             <Card style={{
                 width: '50%',
@@ -29,11 +29,12 @@ const Welcome = (props) => {
                         the estimated production outcome derived from forecasted weather
                         data.
                     </CardText>
-                    <Button bsClass="custom-button" size="lg" block>
-                        <Link className="link" to="/wind">Go to windspeed predictions</Link></Button>
-                    <Button className="button" size="lg" block>
-                        <Link className="link" to="/wind">Go to predicted energy production</Link>
-                    </Button>
+                    <Link className="link" to="/wind">
+                        <Button bsClass="custom-button" size="lg" block>Go to windspeed predictions</Button>
+                    </Link>
+                    <Link className="link" to="/energy">
+                        <Button className="button" size="lg" block>Go to predicted energy production </Button>
+                    </Link>
                 </CardBody>
             </Card>
         </div>

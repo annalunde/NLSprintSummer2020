@@ -3,10 +3,11 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import Moment from 'moment';
-import InfoCardWind from './InfoCardWind';
+import InfoCardEnergy from '../InfoCardEnergy';
 import { Row, Col, Container} from 'reactstrap';
+import Dropdown from '../Dropdowns/Dropdown'
 
-class Wind extends PureComponent {
+class Energy extends PureComponent {
   constructor(props) {
   super(props);
     this.state = {
@@ -17,7 +18,7 @@ class Wind extends PureComponent {
 
   componentWillMount() {
     // Your parse code, but not seperated in a function
-    var csvFilePath = require("../data/ws24juli.csv");
+    var csvFilePath = require("../../data/predictions24juli.csv");
     var Papa = require("papaparse/papaparse.min.js");
     Papa.parse(csvFilePath, {
       header: true,
@@ -36,12 +37,12 @@ class Wind extends PureComponent {
   
 
   render() {
-    const data = this.state.data
+
     const newData = []
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < this.state.data.length; i++) {
       newData.push({
-        time: Moment(data[i].tid).format('DD/MM HH:mm'),
-        "m/s": parseFloat(data[i].windspeed).toFixed(1),
+        time: Moment(this.state.data[i].timestamp).format('DD/MM HH:mm'),
+        kWh: Math.round(parseFloat(this.state.data[i].energy)),
       })
     }
     console.table(newData);
@@ -54,7 +55,7 @@ class Wind extends PureComponent {
       }} >
         <Row className='mt-5'>
           <Col sm={9}>
-            <h2>Predicted Windspeeds</h2>
+            <h2>Predicted Energy Production</h2>
             <LineChart
               width={900}
               height={600}
@@ -68,11 +69,12 @@ class Wind extends PureComponent {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="m/s" stroke="#8884d8" activeDot={{ r: 8 }} />
+              <Line type="monotone" dataKey="kWh" stroke="#9fa9a3" activeDot={{ r: 8 }} />
             </LineChart>
           </Col>
-          <Col className='mt-5 mr-0'  >
-            <InfoCardWind />
+          <Col sm={3} className='mt-5 mr-0'  >
+            <Dropdown className="mr-0"/>
+            <InfoCardEnergy  />
           </Col>
         </Row>
       </Container>
@@ -80,6 +82,6 @@ class Wind extends PureComponent {
   }
 }
 
-export default Wind;
+export default Energy;
 
 

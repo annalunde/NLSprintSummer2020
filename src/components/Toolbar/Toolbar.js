@@ -11,16 +11,15 @@ const toolbar = (props) => (
       <div className="toolbar__toggle-button">
         <DrawerToggleButton click={props.drawerClickHandler} />
       </div>
-      <div>
-        <ReactLogo className="toolbar_logo_picture" />
-      </div>
       <div className="toolbar__logo">
-        <Link to="/">Green Forecast</Link>
+        <Link to="/">
+          <ReactLogo className="toolbar_logo_picture" />
+        </Link>
       </div>
       <div className="spacer" />
       <div className="toolbar_navigation-items">
         <ul>
-        <li>
+          <li>
             <Link to="/wind">Windspeed</Link>
           </li>
           <li>

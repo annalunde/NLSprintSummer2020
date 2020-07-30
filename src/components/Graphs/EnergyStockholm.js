@@ -3,10 +3,11 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import Moment from 'moment';
-import InfoCardEnergy from './InfoCardEnergy';
+import InfoCardEnergy from '../InfoCardEnergy';
 import { Row, Col, Container} from 'reactstrap';
+import Dropdown from '../Dropdowns/Dropdown'
 
-class Energy extends PureComponent {
+class EnergyStockholm extends PureComponent {
   constructor(props) {
   super(props);
     this.state = {
@@ -17,7 +18,7 @@ class Energy extends PureComponent {
 
   componentWillMount() {
     // Your parse code, but not seperated in a function
-    var csvFilePath = require("../data/predictions24juli.csv");
+    var csvFilePath = require("../../data/stockholmEnergy30juli.csv");
     var Papa = require("papaparse/papaparse.min.js");
     Papa.parse(csvFilePath, {
       header: true,
@@ -68,10 +69,11 @@ class Energy extends PureComponent {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="kWh" stroke="#8884d8" activeDot={{ r: 8 }} />
+              <Line type="monotone" dataKey="kWh" stroke="#9fa9a3" activeDot={{ r: 8 }} />
             </LineChart>
           </Col>
-          <Col className='mt-5 mr-0'  >
+          <Col sm={3} className='mt-5 mr-0'  >
+            <Dropdown className="mr-0"/>
             <InfoCardEnergy  />
           </Col>
         </Row>
@@ -80,6 +82,6 @@ class Energy extends PureComponent {
   }
 }
 
-export default Energy;
+export default EnergyStockholm;
 
 

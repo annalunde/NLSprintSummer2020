@@ -8,9 +8,11 @@ import {
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
-import Energy from './components/Energy';
-import Wind from "./components/Wind";
+import Energy from './components/Graphs/Energy';
+import WindStockholm from './components/Graphs/WindStockholm';
+import Wind from "./components/Graphs/Wind";
 import WelcomeText from './components/WelcomeText';
+import EnergyStockholm from "./components/Graphs/EnergyStockholm";
 
 
 class App extends Component {
@@ -73,14 +75,16 @@ class App extends Component {
             <Wind
               className="ml-5" />
           </Route>
-         {/*  <Route path="/history">
-            <Energy
-              className="ml-5" />
-          </Route> */}
           <Route path="/energy">
             <Energy
-              data={this.state.data}
-              dataWind={this.state.dataWind}
+              className="ml-5" />
+          </Route>
+          <Route path="/stockholmWind">
+            <WindStockholm
+              className="ml-5" />
+          </Route>
+          <Route path="/stockholmEnergy">
+            <EnergyStockholm
               className="ml-5" />
           </Route>
           <Route path="/">
