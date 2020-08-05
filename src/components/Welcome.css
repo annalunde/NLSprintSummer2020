@@ -1,0 +1,23 @@
+.header {
+    background: red ;
+}
+
+.link {
+    color: #f0f0f0;
+    padding: 1px;
+}
+
+.link a:hover,
+.link a:active{
+    color: #9fa9a3;
+}
+
+.custom-button{
+    color: white;
+    background-color: green;
+    border-radius: 8px;
+  }
+
+  .title {
+      color: #9fa9a3;
+  }
