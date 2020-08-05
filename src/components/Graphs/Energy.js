@@ -36,7 +36,6 @@ class Energy extends PureComponent {
     });
   }
   componentWillMount() {
-    // Your parse code, but not seperated in a function
     this.updateGraph("Oslo");
   }
 

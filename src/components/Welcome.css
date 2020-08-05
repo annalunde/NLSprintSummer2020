@@ -1,5 +1,5 @@
 .header {
-    background: red ;
+    background: #e3e0cc ;
 }
 
 .link {
@@ -7,17 +7,10 @@
     padding: 1px;
 }
 
-.link a:hover,
-.link a:active{
+.button a:hover,
+.button a:active{
     color: #9fa9a3;
 }
-
-.custom-button{
-    color: white;
-    background-color: green;
-    border-radius: 8px;
-  }
-
   .title {
       color: #9fa9a3;
   }

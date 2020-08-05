@@ -4,7 +4,11 @@ Green Forecast lets you see the forecasted windspeeds in some of Netlight's offi
 
 This project was done as a summersprint by three students at NTNU, with guidance from Netlight. 
 
+
+
 ### Get started
+
+You can check out Green Forecast [here](https://greenforecast.netlify.app/) or you can follow these steps:
 
 1. Download [node.js](https://nodejs.org/en/download/)
 2. Clone the project using `git clone` https://github.com/annalunde/NLSprintSummer2020.git
