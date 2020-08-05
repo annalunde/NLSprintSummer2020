@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 import Moment from 'moment';
 import './Graph.css'
-import InfoCardEnergy from '../InfoCardEnergy';
+import InfoCardWind from '../InfoCardEnergy';
 import Dropdown from '../Dropdowns/Dropdown'
 
 class Wind extends PureComponent {
@@ -61,7 +61,7 @@ class Wind extends PureComponent {
     return (
       <div className="mainWrapper" >
         <div className="graphWrapper">
-          <h2 className="Title"> Predicted Energy Production in {this.state.path}</h2>
+          <h2 className="Title"> Predicted Windspeeds in {this.state.path}</h2>
           <LineChart
             width={940}
             height={600}
@@ -80,7 +80,7 @@ class Wind extends PureComponent {
         </div>
         <div className="infoWrapper">
           <Dropdown className="Dropdown" triggerGraphChange={this.setPath.bind(this)} />
-          <InfoCardEnergy className="Info" city={this.state.path} />
+          <InfoCardWind className="Info" city={this.state.path} />
         </div>
       </div>
     );
