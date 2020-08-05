@@ -25,9 +25,6 @@ const toolbar = (props) => (
           <li>
             <Link to="/energy">Energy</Link>
           </li>
-          {/* <li>
-            <Link to="/history">History</Link>
-          </li> */}
         </ul>
       </div>
     </nav>

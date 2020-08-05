@@ -16,10 +16,10 @@ const Welcome = (props) => {
                 transform: 'translate(-50%, -50%)'
             }} className='mt-5' >
                 <CardHeader className="text-right header" >
-                    <ReactLogo width={20} height={20} />
+                    <ReactLogo width={"30px"} height={"30px"} />
                 </CardHeader>
                 <CardBody className="text-center">
-                    <CardTitle>Welcome to GreenForecast!</CardTitle>
+                    <CardTitle><h4 className="title">Welcome to GreenForecast!</h4></CardTitle>
                     <CardText>
                         This web application is a set of graphs, giving you insight into the
                         energy produced in a windmill park.
@@ -30,10 +30,10 @@ const Welcome = (props) => {
                         data.
                     </CardText>
                     <Link className="link" to="/wind">
-                        <Button bsClass="custom-button" size="lg" block>Go to windspeed predictions</Button>
+                        <Button bsClass="custom-button" size="lg" block>Go to Windspeed Predictions</Button>
                     </Link>
                     <Link className="link" to="/energy">
-                        <Button className="button" size="lg" block>Go to predicted energy production </Button>
+                        <Button className="button" size="lg" block>Go to Predicted Energy Production </Button>
                     </Link>
                 </CardBody>
             </Card>

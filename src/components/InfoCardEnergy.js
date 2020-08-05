@@ -6,22 +6,20 @@ import {
 import { ReactComponent as ReactLogo } from '../pictures/Info.svg';
 
 class InfoCardEnergy extends Component {
+    
+
     render() {
 
         return (
             <div >
-                <Card style={{
-                    width: '100%',
-                    position: 'absolute', left: '80%', top: '68%',
-                    transform: 'translate(-50%, -50%)'
-                }} >
+                <Card >
                     <CardHeader>
-                        <Col className="text-right"><ReactLogo width={20} height={20} /></Col>
+                        <Col className="text-right"><ReactLogo width={"25px"} height={"25px"} /></Col>
                     </CardHeader>
                     <CardBody className="text-center">
                         <CardTitle></CardTitle>
                         <CardText>
-                            This graph shows you a prediction of the energy production in a windmill park in kWh in the next 48 hours.
+                            This graph shows you a prediction of the energy production for the {this.props.city} office area in kWh in the next 48 hours, had this area been a windmill park.
                         </CardText>
                         <CardText>
                             This is estimated using historical energy production data and the forecasted windspeed.

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import {Link} from 'react-router-dom';
 import "./Dropdown.css";
 
 const DropdownPlace = (props) => {
@@ -8,24 +7,23 @@ const DropdownPlace = (props) => {
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
 
+  const [cities] = useState(["Oslo", "Stockholm", "Copenhagen", "Munich"]);
+
+
   return (
-    <Dropdown isOpen={dropdownOpen} toggle={toggle}
-    style={{
-      position: 'absolute', left: '88%' ,top:'3%',
-      transform: 'translate(-50%, -50%)'
-  }} >
+    <Dropdown isOpen={dropdownOpen} toggle={toggle} >
       <DropdownToggle caret>
-        Velg et av Netlights kontorer
+        Choose a Netlight Office Area
         </DropdownToggle>
-      <DropdownMenu right>  
-        <DropdownItem ><Link className="dropdownItem"to="/energy">Netlights Oslo-kontor</Link></DropdownItem>
-        <DropdownItem>  <Link className="dropdownItem" to="/StockholmEnergy">Netlights Stockhomskontor</Link></DropdownItem>
-        <DropdownItem>Netlights Københavnskontor</DropdownItem>
-        <DropdownItem>Netlights München-kontor</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+      <DropdownMenu right>
+        <DropdownItem onClick={() => props.triggerGraphChange(""+cities[0])}>{cities[0]}</DropdownItem>
+        <DropdownItem onClick={() => props.triggerGraphChange(""+cities[1])}>{cities[1]}</DropdownItem>
+        <DropdownItem onClick={() => props.triggerGraphChange(""+cities[2])}>{cities[2]}</DropdownItem>
+        <DropdownItem onClick={() => props.triggerGraphChange(""+cities[3])}>{cities[3]}</DropdownItem>
+      </DropdownMenu >
+    </Dropdown >
   );
 }
 
-export default DropdownPlace;
 
+export default DropdownPlace;
