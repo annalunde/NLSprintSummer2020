@@ -8,10 +8,10 @@ This project was done as a summersprint by three students at NTNU, with guidance
 
 1. Download [node.js](https://nodejs.org/en/download/)
 2. Clone the project using `git clone` https://github.com/annalunde/NLSprintSummer2020.git
-3. Open the project folder and run the following command: 
+3. Open the project folder and run the following command in the terminal: 
 
 `npm install`
 
-4. To run the project run the following command:
+4. To run the project run the following command in the terminal:
 
 `npm start`
